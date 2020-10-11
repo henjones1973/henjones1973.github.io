@@ -51,6 +51,11 @@
       display: block;
       margin: 5px;
     }
+
+    input,
+    button {
+      padding: .5rem;
+    }
   </style>
 </head>
 
@@ -70,7 +75,21 @@
     <p><span id="output"></span></p>
   </main>
   <footer>&copy;2020 &bull; JJ Jones &bull; BYU-Idaho &bull; CIT 160</footer>
-  <script></script>
+  <script>
+  function addNumbers() {
+    // INPUT
+    let number1 = document.getElementById("number1").value;
+    let number2 = document.getElementById("number2").value; 
+    // Converts input from string to a float.
+    number1 = parseFloat(number1);
+    number2 = parseFloat(number2);
+    let sum = number1 + number2;
+    document.getElementById("output").textContent = sum;
+
+
+  }
+  </script>
+  
 </body>
 
 </html>
