@@ -69,6 +69,7 @@
       <option value="snow">Snow</option>
       <option value="rain">Rain</option>
       <option value="hot">Hot</option>
+      <option value="known">Known</option>
       </select>
     </label>
     <label><button onclick="getShoes()">Get Shoes</button></label>
@@ -88,8 +89,14 @@
     else if (weather === "rain"){
       shoes = "galoshes";
     }
-    else { shoes = "sandals"
+    else if (weather === "hot"){
+      shoes = "sandals";
     }
+    else {
+      shoes = "shoes";
+    }
+
+
     document.getElementById("output").textContent = shoes;
     
   }
