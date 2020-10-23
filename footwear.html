@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>CTI 160 Pounds to Kilograms - JJ Jones</title>
+  <title>Add Two Numbers</title>
   <style>
     header,
     footer {
@@ -57,20 +57,43 @@
 <body>
   <header>
 
-    <h1>Week 5: Pounds to kilograms</h1>
+    <h1>Foot wear</h1>
     <h2>JJ Jones</h2>
 
   </header>
   <main>
-    <h3>Pounds to kilograms</h3>
-    <label>Enter Amount in Pounds: <input type="text" id="pounds"></label>
-    
-    <label><button onclick="poundsToKilograms()">Convert</button></label>
+    <h3>Foot wear</h3>
+    <label>
+      <select name="weather" id="weather">
+      <option value="" disabled selected>--Select the weather.--</option>
+      <option value="snow">Snow</option>
+      <option value="rain">Rain</option>
+      <option value="hot">Hot</option>
+      </select>
+    </label>
+    <label><button onclick="getShoes()">Get Shoes</button></label>
     <hr>
     <p><span id="output"></span></p>
   </main>
   <footer>&copy;2020 &bull; JJ Jones &bull; BYU-Idaho &bull; CIT 160</footer>
-  <script src=js/poundsToKilograms.js></script>
+  <script>
+  function getShoes() {
+    let shoes; 
+    // INPUT WEATHER FROM COMBO BOX
+    let weather = document.getElementById('weather').value;
+    // PROCESSING
+    if (weather === "snow"){
+      shoes = "boots";
+      }
+    else if (weather === "rain"){
+      shoes = "galoshes";
+    }
+    else { shoes = "sandals"
+    }
+    document.getElementById("output").textContent = shoes;
+    
+  }
+    </script>
 </body>
 
 </html>

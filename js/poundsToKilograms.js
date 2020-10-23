@@ -6,7 +6,7 @@ function poundsToKilograms(){
 // PROCESSING
 // Conversion factor for pounds to kilograms is
 
-let kilograms = 2.205
+let kilograms = pounds * .45359237
 
 // OUTPUT
 document.getElementById('output').textContent =
