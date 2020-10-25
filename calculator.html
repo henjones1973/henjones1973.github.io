@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Add Two Numbers</title>
+  <link rel="stylesheet" href="./css/template-style.css">
+  <title>Kid's Calculator</title>
   <style>
     header,
     footer {
@@ -57,20 +58,31 @@
 <body>
   <header>
 
-    <h1>Week 4: Add Two Numbers </h1>
-    <h2>Student Name</h2>
+    <h1>Kid's Calculator </h1>
+    <h2>Beginer's Math</h2>
 
   </header>
   <main>
-    <h3>Add Two Numbers</h3>
-    <label>Enter Number One: <input type="text" id="number1"></label>
-    <label>Enter Number Two: <input type="text" id="number2"></label>
-    <label><button onclick="addNumbers()">Add Numbers</button></label>
+    <h3>Let's Test Your Knowledge</h3>
+    <input type="text" id="number1" size="2" />
+    <select name="select" id="operator" size="1">
+            <option value=""></option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">x</option>
+      <option value="/">/</option>
+      </select>
+
+    <input type="text" id="number2" size="2">
+    =
+    <input type="text" id="answer" size="2">
+
+    <button onclick="calculator()">Verify</button>
     <hr>
     <p><span id="output"></span></p>
   </main>
   <footer>&copy;2020 &bull; JJ Jones &bull; BYU-Idaho &bull; CIT 160</footer>
-  <script></script>
+  <script src="./js/calc.js" ></script>
 </body>
 
 </html>
