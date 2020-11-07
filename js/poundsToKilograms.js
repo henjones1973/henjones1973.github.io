@@ -10,6 +10,6 @@ let kilograms = pounds * .45359237
 
 // OUTPUT
 document.getElementById('output').textContent =
-kilograms.toFixed(1) + " Kilograms";
+kilograms.toFixed(3) + " Kilograms";
 }
 
