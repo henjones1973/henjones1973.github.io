@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Sum Odd Numbers</title>
+  <style>
+    header,
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+    }
+
+    body {
+      text-align: center;
+    }
+
+    footer {
+      font-size: 13px;
+      letter-spacing: 1.5pt;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    h2,
+    #currentdate {
+      color: yellow;
+    }
+
+    main {
+      margin: 10px auto;
+      border: 1px solid #999;
+      padding: 10px;
+      max-width: 500px;
+      background-color: #abe;
+      box-shadow: 0 0 30px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 0 0 15px 0;
+      border-bottom: 1px solid #333;
+      padding: 0;
+    }
+
+    label {
+      display: block;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <h1>Sum Odd Numbers</h1>
+    <h2>JJ Jones</h2>
+
+  </header>
+  <main>
+    <h3>Sum Odd Numbers</h3>
+    <label>Enter N Value: <input type="text" id="n"></label>
+    <label><button onclick="sumOddNumbers()">Get Sum</button></label>
+    <hr>
+    <p><span id="output"></span></p>
+  </main>
+  <footer>&copy;2020 &bull; JJ Jones &bull; BYU-Idaho &bull; CIT 160</footer>
+  <script>
+    //Function
+    function sumOddNumbers() {
+      let n = document.getElementById("n").value;
+      //convert from string to integer
+      n = parseInt(n);
+      let count = 0;
+      for (let i = 1; i <= n; i++){
+              if (i % 2 !== 0) { count += i
+        document.getElementById('output').textContent = count;
+
+        }
+      }
+   
+    } 
+  </script>
+</body>
+
+</html>
