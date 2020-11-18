@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Title</title>
+</head>
+<body>
+  <p>Please enter two numbers:</p>
+  <input type="text" id="one" size="5"><br>
+  <input type="text" id="two" size="5">
+  <button type="button" onclick="compareTwoNumbers()">Click</button>
+  <div id="message"></div>
+
+  <script>
+    // Input:
+     function compareTwoNumbers(){
+     //Processing:
+     let one = parseInt(document.getElementById("one").value);
+     let two = parseInt(document.getElementById("two").value);
+     let message = "";
+
+    if (one > 5 && two > 5 || one + two > 20){
+        message == "True";}
+    else {
+            message == "False";
+        }
+
+     
+     //Output:
+     document.getElementById("output").textContent = message;
+    }
+ 
+  </script>
+</body>
+</html>
