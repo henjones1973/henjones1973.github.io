@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Wind Chill</title>
+  <style>
+    header,
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+    }
+
+    body {
+      text-align: center;
+    }
+
+    footer {
+      font-size: 13px;
+      letter-spacing: 1.5pt;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    h2,
+    #currentdate {
+      color: yellow;
+    }
+
+    main {
+      margin: 10px auto;
+      border: 1px solid #999;
+      padding: 10px;
+      max-width: 500px;
+      background-color: #abe;
+      box-shadow: 0 0 30px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 0 0 15px 0;
+      border-bottom: 1px solid #333;
+      padding: 0;
+    }
+
+    label {
+      display: block;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <h1>Week 10: Wind Chill</h1>
+    <h2>JJ Jones</h2>
+
+  </header>
+  <main>
+    <h3>Wind Chill</h3>
+    <label>Temperature: <input type="text" id='temperature'></label>
+    <label>Wind Speed: <input type="text" id='windspeed'></label>
+    <label><button onclick="doInputOutput()">Wind Chill</button></label>
+    <hr>
+    <div id="windchill"></div>
+  </main>
+  <footer>&copy;2020 &bull; JJ Jones &bull; BYU-Idaho &bull; CIT 160</footer>
+  <script>
+          
+         
+    //Calculates the wind chill factor as a temperature in Fahrenheit.
+    function windChill(tempF, speed ){
+        let windchill = 35.74 + 0.06215 * tempF - 35.75 * speed ** 0.16 + 0.4275 * tempF * speed ** 0.16         
+        return windchill;
+    }
+   
+    function doInputOutput(){
+        //Temperature and wind speed INPUT
+        let  temperature = document.getElementById('temperature').value;
+        let  windspeed = document.getElementById('windspeed').value;
+        
+        //Convert from a string to a float
+        temperature = parseFloat(temperature);
+        windspeed = parseFloat(windspeed);
+        
+        let tempF = temperature; //Temperature in Fahrenheit
+        let speed = windspeed;   //Wind speed in miles per hour.
+        
+        if ( temperature < 50 && windspeed > 3 ){        
+          let wc =  windChill( tempF, speed );
+          document.getElementById('windchill').textContent = wc.toFixed(2);
+        }        
+
+      }
+      
+      
+   
+    
+  </script>
+</body>
+
+</html>
