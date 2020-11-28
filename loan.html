@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Loan Calculator</title>
+  <style>
+    header,
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+    }
+
+    body {
+      text-align: left;
+    }
+
+    footer {
+      font-size: 13px;
+      letter-spacing: 1.5pt;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    h2,
+    #currentdate {
+      color: yellow;
+    }
+
+    main {
+      margin: 10px auto;
+      border: 1px solid #999;
+      padding: 10px;
+      max-width: 500px;
+      background-color: #abe;
+      box-shadow: 0 0 30px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 0 0 15px 0;
+      border-bottom: 1px solid #333;
+      padding: 0;
+    }
+
+    label {
+      display: block;
+      margin: 5px;
+    }
+
+    input, span {
+      float: right
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <h1>Week 11: Loan Calculator </h1>
+    <h2>JJ Jones</h2>
+
+  </header>
+  <main>
+    <h3>Loan Calculator</h3>
+    <label>Amount borrowed (principal) <input type="text" id="principal"></label>
+    <label>Annual interest rate (example: .065) <input type="text" id="annualRate"></label>
+    <label>Number of years <input type="text" id="years"></label>
+    <label>Payment per year <input type="text" id="periodsPerYear"></label>
+    <div><button onclick="doPayment()">Compute payment</button><span id="payment"></span></div>
+    <label>Number of payments payed to date <input type="text" id="numberOfPaymentsPaidToDate"></label>
+    <div>
+    <button onclick="doBalance()">Compute payoff amount</button><span id="balance"></span>
+    </div>
+  </main>
+  <footer>&copy;2020 &bull; JJ Jones &bull; BYU-Idaho &bull; CIT 160</footer>
+  <script>
+    function doPayment ( ){
+      //INPUT string values for principal, annualRate, years, periodsPerYear, 
+      principal = document.getElementById('principal').value;
+      annualRate = document.getElementById('annualRate').value;
+      years = document.getElementById('years').value;
+      periodsPerYear = document.getElementById('periodsPerYear').value;     
+      
+      //Convert string values to floats
+      principal = parseFloat(principal);
+      annualRate = parseFloat(annualRate);
+      years = parseFloat(years);
+      periodsPerYear = parseFloat(periodsPerYear);
+
+      let payment =  computePayment (principal, annualRate, years, periodsPerYear);
+      document.getElementById('payment').textContent = payment.toFixed(2);
+    }
+
+    function doBalance ( ){
+      numberOfPaymentsPaidToDate = document.getElementById('numberOfPaymentsPaidToDate').value;      
+      numberOfPaymentsPaidToDate = parseFloat(numberOfPaymentsPaidToDate);
+      let balance = computeBalance (principal, annualRate, years, periodsPerYear, numberOfPaymentsPaidToDate);
+      document.getElementById('balance').textContent = balance.toFixed(2);
+
+    }
+    function computePayment (principal, annualRate, years, periodsPerYear){
+      let p = (principal * annualRate) / (1 - ((1 + annualRate) ** - periodsPerYear))
+      return p;
+    }
+    function computeBalance (principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate){
+      let b = (principal * (1 + annualRate) ** numberOfPaymentPaidToDate) - (((periodsPerYear * ((1 + annualRate ) ** numberOfPaymentPaidToDate ) - 1)) / annualRate)
+      return b;
+    }
+  </script>
+</body>
+
+</html>

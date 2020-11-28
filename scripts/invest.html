@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Investment Calculator</title>
+  <style>
+    header,
+    footer {
+      background-color: rgb(15, 14, 14);
+      color: rgb(161, 160, 165);
+      padding: 10px;
+    }
+
+    body {
+      text-align: left;
+    }
+
+    footer {
+      font-size: 13px;
+      letter-spacing: 1.5pt;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    h2,
+    #currentdate {
+      color: yellow;
+    }
+
+    main {
+      margin: 10px auto;
+      border: 1px solid #999;
+      padding: 10px;
+      max-width: 500px;
+      background-color: rgb(214, 214, 218);
+      box-shadow: 0 0 30px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 0 0 15px 0;
+      border-bottom: 1px solid #333;
+      padding: 0;
+    }
+
+    label {
+      display: block;
+      margin: 5px;
+    }
+    input {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <h1>Week 11: Investment Calculator </h1>
+    <h2>JJ Jones</h2>
+
+  </header>
+  <main>
+    <h3>Investment Calculator</h3>
+    <label>Amount invested (principal) <input type="text" id="principal"></label>
+    <label>Annual rate (example: .08) <input type="text" id="annualRate"></label>
+    <label>Number of years <input type="text" id="years"></label>
+    <label>Periods per year <input type="text" id="periodsPerYear"></label>
+    <label><button onclick="doFV()">Compute future value</button><input type="text" id="fv"></label>
+    <hr>
+    <p><span id="output"></span></p>
+  </main>
+  <footer>&copy;2020 &bull; JJ Jones &bull; BYU-Idaho &bull; CIT 160</footer>
+  <script>
+  
+    function computeFutureValue(principal, annualRate, years, periodsPerYear){
+      let f = principal * ( 1 + annualRate) ** periodsPerYear
+      return f;
+      }
+    function doFV (){
+      //INPUT principal, rate, years, and periods.
+      principal = document.getElementById('principal').value;
+      annualRate = document.getElementById('annualRate').value;
+      years = document.getElementById('years').value;
+      periodsPerYear = document.getElementById('periodsPerYear').value; 
+      
+      //Convert from string to a float.
+      principal = parseFloat(principal);
+      annualRate = parseFloat(annualRate);
+      years = parseFloat(years);
+      periodsPerYear = parseFloat(periodsPerYear);
+      let fv = computeFutureValue(principal, annualRate, years, periodsPerYear);
+      document.getElementById('fv').value = fv.toFixed(2);
+      }
+  
+  </script>
+</body>
+
+</html>
